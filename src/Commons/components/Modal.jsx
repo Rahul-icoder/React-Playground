@@ -1,12 +1,19 @@
-import {Modal} from "@material-ui/core";
-import styled from 'styled-components';
+import { Dialog, DialogTitle, DialogContent } from "@material-ui/core";
+import styled from "styled-components";
 
-export const CustomModal = styled(({ handleClose, open,children,...props }) => (
-	<Modal open={open} onClose={handleClose} {...props}>
-		<div className="modal-div">
-			{children}
-		</div>
-	</Modal>
-))`
-	
+export const CustomModal = styled(
+	({ handleClose, title, open, children, ...props }) => (
+		<Dialog open={open} onClose={handleClose} {...props}>
+			<DialogTitle>{title}</DialogTitle>
+			<DialogContent>{children}</DialogContent>
+		</Dialog>
+	)
+)`
+	width: 100%;
+	.MuiDialog-paper {
+		width: 90%;
+	}
+	.MuiDialog-paperWidthSm{
+		max-width:unset;
+	}
 `;

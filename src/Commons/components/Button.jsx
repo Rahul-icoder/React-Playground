@@ -10,4 +10,4 @@ function Button({children,color,variant,...rest}) {
 	)
 }
 
-export default Button
+export default Button;

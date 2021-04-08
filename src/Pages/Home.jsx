@@ -34,8 +34,8 @@ function Home() {
 			<Button  variant="contained" className={classes.save}>Save</Button>
 			<Input  type="time" color="primary"/>
 			<Header title="Mushin Aqua" menuHandler={handleMenu}/>
-			<CustomModal open={isOpen} handleClose={handleClose}>
-				<h1>Hello Rahul Welcome to Modal</h1>
+			<CustomModal open={isOpen} handleClose={handleClose} title={"Modal"}>
+				<p> Lorem ipsum dolor sit amet consectetur adipisicing, elit. Incidunt, molestiae?	</p>
 			</CustomModal>
 		</div>
 	)
