@@ -17,13 +17,18 @@ import Wrapper from "./Flexbox";
     </Toolbar>
   </AppBar>
 ))`
+  height:60px;
  	.title {
  	   font-family: 'Dancing Script', sans-serif;
  	   font-size: 1.2rem;
+     margin-left:3rem;
  	 }
  	 .menu-icon {
  	   display: initial;
  	   font-size: 2.25rem;
+     position:absolute;
+     left:0;
+     margin-left:0.3rem;
  `;
 
 export default Navbar;

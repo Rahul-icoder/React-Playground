@@ -7,8 +7,8 @@ import {
 	Button,
 	Navbar,
 	Input,
+	Sidebar
 } from "../Commons/components/";
-import Sidebar from "../Commons/components/Sidebar";
 
 const useStyles = makeStyles((theme) => ({
 	root: {

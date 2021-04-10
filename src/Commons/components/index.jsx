@@ -4,6 +4,7 @@ import Modal from "./Modal";
 import Wrapper from "./Flexbox";
 import Navbar from "./Navbar";
 import Box from "./Box";
+import Sidebar from "./Sidebar";
 
 
 export {
@@ -12,5 +13,6 @@ export {
 	Modal,
 	Wrapper,
 	Navbar,
-	Box
+	Box,
+	Sidebar
 }
