@@ -1,56 +1,89 @@
-import { Button } from "@material-ui/core";
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core";
-import Input from "../Commons/components/Input";
-import Header from "../Commons/components/Navbar";
-import { CustomModal } from "../Commons/components/Modal";
-import { Box } from "../Commons/components/Box";
+import {
+	Modal,
+	Wrapper,
+	Box,
+	Button,
+	Navbar,
+	Input,
+} from "../Commons/components/";
+import Sidebar from "../Commons/components/Sidebar";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.warning.main,
-    "&:hover": {
-      background: "orange",
-    },
-  },
-  save: {
-    backgroundColor: theme.palette.error.main,
-    "&:hover": {
-      background: "red",
-    },
-  },
+	root: {
+		backgroundColor: theme.palette.warning.main,
+		"&:hover": {
+			background: "orange",
+		},
+	},
 }));
 function Home() {
-  const classes = useStyles();
-  const [isOpen, setIsOpen] = useState(false);
-  function handleMenu() {
-    setIsOpen(true);
-  }
-  function handleClose() {
-    setIsOpen(false);
-  }
-  return (
-    <div>
-      <Button variant="contained" className={classes.root}>
-        Submit
-      </Button>
-      <Button variant="contained" className={classes.save}>
-        Save
-      </Button>
-      <Input type="time" color="primary" />
-      <Header title="Mushin Aqua" menuHandler={handleMenu} />
-      <CustomModal open={isOpen} handleClose={handleClose} title={"Modal"}>
-        <p>
-          {" "}
-          Lorem ipsum dolor sit amet consectetur adipisicing, elit. Incidunt,
-          molestiae?{" "}
-        </p>
-      </CustomModal>
-      <Box style={{ height: "300px", width: "200px" }} mt="10">
-        hello Box
-      </Box>
-    </div>
-  );
+	const [isOpen, setIsOpen] = useState(false);
+	const [isSidebar, setIsSidebar] = useState(false);
+	function handleMenu() {
+		setIsSidebar(true);
+	}
+	function handleClose() {
+		setIsOpen(false);
+	}
+	return (
+		<div>
+			<Navbar title="Mushin Aqua" menuHandler={handleMenu} />
+			<Wrapper justify="center">
+				<Box mt="3">
+					<Button color="secondary" onClick={() => setIsOpen(true)}>
+						Add Form
+					</Button>
+				</Box>
+			</Wrapper>
+			<Modal
+				open={isOpen}
+				handleClose={handleClose}
+				title="Register Form"
+			>
+				<Box mb="2">
+					<Wrapper column>
+						<Box m="1" width="50">
+							<Input
+								fullWidth="true"
+								type="text"
+								color="primary"
+								label="Name"
+								variant="outlined"
+							/>
+						</Box>
+						<Box m="1" width="50">
+							<Input
+								fullWidth="true"
+								type="email"
+								color="primary"
+								label="Email"
+								variant="outlined"
+							/>
+						</Box>
+						<Box m="1" width="50">
+							<Input
+								fullWidth="true"
+								type="password"
+								color="primary"
+								label="Password"
+								variant="outlined"
+							/>
+						</Box>
+						<Box m="1.2">
+							<Button type="submit" color="Primary">
+								Submit
+							</Button>
+						</Box>
+					</Wrapper>
+				</Box>
+			</Modal>
+			<Sidebar {...{isSidebar}} handleCloseSide={()=>setIsSidebar(false)} handleOpenSide={()=>setIsSidebar(true)}>
+				<p>hello Good morning</p>
+			</Sidebar>
+		</div>
+	);
 }
 
 export default Home;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Flexbox = styled.div`
+const Wrapper = styled.div`
 	display:flex;
 	flex-direction:${({column})=>column? 'column':'row'};
 	flex:1;
@@ -8,4 +8,6 @@ const Flexbox = styled.div`
 	gap:${(props)=>props.gap ? props.gap : 0};
 	justify-content:${(props)=>props.justify||'flex-start'}
 `
-export default Flexbox;
+
+export default Wrapper;
+

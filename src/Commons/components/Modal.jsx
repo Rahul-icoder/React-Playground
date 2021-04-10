@@ -1,7 +1,7 @@
 import { Dialog, DialogTitle, DialogContent } from "@material-ui/core";
 import styled from "styled-components";
 
-export const CustomModal = styled(
+const CustomModal = styled(
 	({ handleClose, title, open, children, ...props }) => (
 		<Dialog open={open} onClose={handleClose} {...props}>
 			<DialogTitle>{title}</DialogTitle>
@@ -17,3 +17,5 @@ export const CustomModal = styled(
 		max-width:unset;
 	}
 `;
+
+export default CustomModal;
