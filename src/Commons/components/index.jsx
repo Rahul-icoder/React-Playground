@@ -5,6 +5,7 @@ import Wrapper from "./Flexbox";
 import Navbar from "./Navbar";
 import Box from "./Box";
 import Sidebar from "./Sidebar";
+import Loader from "./Loader";
 
 
 export {
@@ -14,5 +15,6 @@ export {
 	Wrapper,
 	Navbar,
 	Box,
+	Loader,
 	Sidebar
 }

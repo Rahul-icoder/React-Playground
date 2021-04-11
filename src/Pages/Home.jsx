@@ -7,7 +7,8 @@ import {
 	Button,
 	Navbar,
 	Input,
-	Sidebar
+	Sidebar,
+	Loader
 } from "../Commons/components/";
 
 const useStyles = makeStyles((theme) => ({
@@ -30,6 +31,7 @@ function Home() {
 	return (
 		<div>
 			<Navbar title="Mushin Aqua" menuHandler={handleMenu} />
+			<Loader/>
 			<Wrapper justify="center">
 				<Box mt="3">
 					<Button color="secondary" onClick={() => setIsOpen(true)}>
