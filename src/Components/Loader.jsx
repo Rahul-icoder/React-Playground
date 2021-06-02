@@ -3,7 +3,7 @@ import { LinearProgress, makeStyles } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   indicator: {
     position: 'fixed',
-    height: theme.spacing(1),
+    height: theme.spacing(0.9),
     width: '100vw',
     '& .MuiLinearProgress-bar': {
       borderRadius: '50%',

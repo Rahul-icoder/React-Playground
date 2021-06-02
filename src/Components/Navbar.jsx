@@ -1,9 +1,13 @@
-import {AppBar,Toolbar,IconButton} from "@material-ui/core";
+import {AppBar,Toolbar,IconButton,Badge} from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu';
 import styled from 'styled-components';
 import Wrapper from "./Flexbox";
+import {useCounter} from "../Context/CounterContext";
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
- const Navbar = styled(({ menuHandler, title,...props }) => (
+ const Navbar = styled(({ menuHandler, title,...props }) =>{ 
+  let {count} = useCounter();
+  return(
   <AppBar position="sticky" {...props}>
     <Toolbar>
       <Wrapper justify="space-between">
@@ -13,10 +17,13 @@ import Wrapper from "./Flexbox";
           </IconButton>
           <p className="title">{title}</p>
         </Wrapper>
+        <Badge badgeContent={count} color="secondary">
+            <AddShoppingCartIcon style={{color:'yellow'}} />
+        </Badge>
       </Wrapper>
     </Toolbar>
   </AppBar>
-))`
+)})`
   height:60px;
  	.title {
  	   font-family: 'Dancing Script', sans-serif;

@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import Box from "./Box";
 import Sidebar from "./Sidebar";
 import Loader from "./Loader";
+import Avatar from "./Avatar"
 
 
 export {
@@ -16,5 +17,6 @@ export {
 	Navbar,
 	Box,
 	Loader,
-	Sidebar
+	Sidebar,
+	Avatar
 }

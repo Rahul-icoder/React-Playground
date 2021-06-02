@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { makeStyles } from "@material-ui/core";
 import {
 	Modal,
@@ -6,11 +6,13 @@ import {
 	Box,
 	Button,
 	Navbar,
-	Input,
 	Sidebar,
-	Loader
-} from "../Commons/components/";
-
+	Loader,
+	Avatar
+} from "../Components";
+import logo from "../Assets/images/logo.jpg"
+import Form from "./Form";
+import {Counter} from "../Context/CounterContext";
 const useStyles = makeStyles((theme) => ({
 	root: {
 		backgroundColor: theme.palette.warning.main,
@@ -22,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 function Home() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isSidebar, setIsSidebar] = useState(false);
+	const {count,increament,decreament} = useContext(Counter)
 	function handleMenu() {
 		setIsSidebar(true);
 	}
@@ -33,56 +36,20 @@ function Home() {
 			<Navbar title="Mushin Aqua" menuHandler={handleMenu} />
 			<Loader/>
 			<Wrapper justify="center">
-				<Box mt="3">
-					<Button color="secondary" onClick={() => setIsOpen(true)}>
-						Add Form
-					</Button>
+				<Box mt="5">
+					<Button color="secondary" onClick={() => setIsOpen(true)}> Add Form </Button>
 				</Box>
 			</Wrapper>
-			<Modal
-				open={isOpen}
-				handleClose={handleClose}
-				title="Register Form"
-			>
-				<Box mb="2">
-					<Wrapper column>
-						<Box m="1" width="50">
-							<Input
-								fullWidth="true"
-								type="text"
-								color="primary"
-								label="Name"
-								variant="outlined"
-							/>
-						</Box>
-						<Box m="1" width="50">
-							<Input
-								fullWidth="true"
-								type="email"
-								color="primary"
-								label="Email"
-								variant="outlined"
-							/>
-						</Box>
-						<Box m="1" width="50">
-							<Input
-								fullWidth="true"
-								type="password"
-								color="primary"
-								label="Password"
-								variant="outlined"
-							/>
-						</Box>
-						<Box m="1.2">
-							<Button type="submit" color="Primary">
-								Submit
-							</Button>
-						</Box>
-					</Wrapper>
-				</Box>
+			<Box mt="5">
+				<p>{count}</p>
+				<Button onClick={increament}>Increament</Button>
+				<Button onClick={decreament}>Decreament</Button>
+			</Box>
+			<Modal open={isOpen} handleClose={handleClose} title="Register Form">
+				<Form/>
 			</Modal>
 			<Sidebar {...{isSidebar}} handleCloseSide={()=>setIsSidebar(false)} handleOpenSide={()=>setIsSidebar(true)}>
-				<p>hello Good morning</p>
+				<Wrapper justify="center"><Avatar url={logo} name="logo" size="100"/></Wrapper>
 			</Sidebar>
 		</div>
 	);
